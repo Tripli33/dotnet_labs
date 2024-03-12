@@ -11,7 +11,7 @@ using Restaurant.DAL;
 namespace Restaurant.DAL.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240310220228_init")]
+    [Migration("20240312201128_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -22,7 +22,7 @@ namespace Restaurant.DAL.Migrations
                 .HasAnnotation("ProductVersion", "7.0.16")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("Restaurant.DAL.Entities.Models.Client", b =>
+            modelBuilder.Entity("Restaurant.DAL.Entities.Client", b =>
                 {
                     b.Property<int>("ClientId")
                         .ValueGeneratedOnAdd()
@@ -45,7 +45,7 @@ namespace Restaurant.DAL.Migrations
                     b.ToTable("Clients");
                 });
 
-            modelBuilder.Entity("Restaurant.DAL.Entities.Models.Dish", b =>
+            modelBuilder.Entity("Restaurant.DAL.Entities.Dish", b =>
                 {
                     b.Property<int>("DishId")
                         .ValueGeneratedOnAdd()
@@ -65,7 +65,7 @@ namespace Restaurant.DAL.Migrations
                     b.ToTable("Dishes");
                 });
 
-            modelBuilder.Entity("Restaurant.DAL.Entities.Models.Order", b =>
+            modelBuilder.Entity("Restaurant.DAL.Entities.Order", b =>
                 {
                     b.Property<int>("OrderId")
                         .ValueGeneratedOnAdd()
@@ -99,15 +99,15 @@ namespace Restaurant.DAL.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("Restaurant.DAL.Entities.Models.Order", b =>
+            modelBuilder.Entity("Restaurant.DAL.Entities.Order", b =>
                 {
-                    b.HasOne("Restaurant.DAL.Entities.Models.Client", "Client")
+                    b.HasOne("Restaurant.DAL.Entities.Client", "Client")
                         .WithMany("Orders")
                         .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Restaurant.DAL.Entities.Models.Dish", "Dish")
+                    b.HasOne("Restaurant.DAL.Entities.Dish", "Dish")
                         .WithMany("Orders")
                         .HasForeignKey("DishId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -118,12 +118,12 @@ namespace Restaurant.DAL.Migrations
                     b.Navigation("Dish");
                 });
 
-            modelBuilder.Entity("Restaurant.DAL.Entities.Models.Client", b =>
+            modelBuilder.Entity("Restaurant.DAL.Entities.Client", b =>
                 {
                     b.Navigation("Orders");
                 });
 
-            modelBuilder.Entity("Restaurant.DAL.Entities.Models.Dish", b =>
+            modelBuilder.Entity("Restaurant.DAL.Entities.Dish", b =>
                 {
                     b.Navigation("Orders");
                 });

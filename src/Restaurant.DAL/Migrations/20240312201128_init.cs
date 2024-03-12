@@ -151,7 +151,7 @@ namespace Restaurant.DAL.Migrations
             
             migrationBuilder.Sql("DROP TRIGGER calculate_order_price_insert");
 
-            migrationBuilder.Sql("DROP trigger calculate_order_price_update");
+            migrationBuilder.Sql("DROP TRIGGER calculate_order_price_update");
         }
     }
 }
