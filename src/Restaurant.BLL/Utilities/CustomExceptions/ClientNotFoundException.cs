@@ -6,4 +6,9 @@ public sealed class ClientNotFoundException : NotFoundException
         : base($"The client with id: {id} doesn't exist in the database.")
     {
     }
+
+    public ClientNotFoundException(string email)
+        : base($"The client with email: {email} doesn't exist in the database.")
+    {
+    }
 }

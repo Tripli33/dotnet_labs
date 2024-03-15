@@ -14,6 +14,10 @@ public class ClientRepository : RepositoryBase<Client>, IClientRepository
         await FindByCondition(c => c.ClientId == id, trackChanges)
             .SingleOrDefaultAsync();
 
+    public async Task<Client?> GetClientByEmailAsync(string email, bool trackChanges) =>
+        await FindByCondition(c => c.Email != null && c.Email.Equals(email), trackChanges)
+            .FirstOrDefaultAsync();
+
     public async Task<IEnumerable<Client>> GetAllClientsAsync(bool trackChanges) =>
         await FindAll(trackChanges)
             .OrderBy(c => c.Name)

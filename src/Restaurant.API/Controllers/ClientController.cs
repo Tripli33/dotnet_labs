@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Restaurant.BLL.Contracts;
 using Restaurant.BLL.DTOs.Client;
 using Restaurant.BLL.DTOs.Order;
@@ -6,7 +7,8 @@ using Restaurant.BLL.Utilities.CustomExceptions;
 
 namespace Restaurant.API.Controllers;
 
-[Route("api/clients")]
+[ApiVersion("1.0")]
+[Route("api/v{version:apiVersion}/[controller]")]
 [ApiController]
 public class ClientController : ControllerBase
 {

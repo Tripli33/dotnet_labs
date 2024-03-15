@@ -4,7 +4,8 @@ using Restaurant.BLL.DTOs.Dish;
 
 namespace Restaurant.API.Controllers;
 
-[Route("api/dishes")]
+[ApiVersion("1.0")]
+[Route("api/v{version:apiVersion}/[controller]")]
 [ApiController]
 public class DishController : ControllerBase
 {
@@ -15,6 +16,8 @@ public class DishController : ControllerBase
         _serviceManager = serviceManager;
     }
 
+    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
     [HttpGet]
     public async Task<IActionResult> GetDishes()
     {
@@ -22,7 +25,9 @@ public class DishController : ControllerBase
     
         return Ok(dishes);
     }
-
+    
+    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
     [HttpGet("{id:int}", Name = "DishById")]
     public async Task<IActionResult> GetDish(int id)
     {
