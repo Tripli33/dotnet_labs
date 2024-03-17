@@ -1,0 +1,23 @@
+﻿services:
+  db:
+    image: mysql:latest
+    volumes:
+      - datafiles:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    container_name: db
+
+  restaurant.api:
+    build:
+      context: .
+      dockerfile: src/Restaurant.API/Dockerfile
+    depends_on:
+      - db
+    ports:
+      - "8888:80"
+    restart: always
+    container_name: api
+
+volumes:
+  datafiles:
