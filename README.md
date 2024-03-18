@@ -27,8 +27,8 @@ Non auth endpoints require JWT token to be provided otherwise 401 response will 
 Currently logs are being added to file and console. You can change or find the settings in *serilog.config.json*.
 
 ## Setup:
-- Clone this repo: ```https://github.com/Tripli33/dotnet_labs.git```
+- Clone this repo: ```git clone https://github.com/Tripli33/dotnet_labs.git```
 - Cd into the folder: ```cd dotnet_labs```
 - Switch branch to api: ```git checkout api```
 - Run docker-compose: ```docker-compose up -d --build```
-- Open a web browser: https://localhost:8888/swagger/index.html
+- Open a web browser: http://localhost:8888/swagger/index.html
